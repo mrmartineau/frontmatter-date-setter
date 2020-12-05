@@ -6,14 +6,17 @@ const frontmatterDateSetter = require('./frontmatter-date-setter')
 const cli = meow(
   `
   Usage
-    $ frontmatterDateSetter <input>
+    $ frontmatter-date-setter <input>
+    $ fds <input>
 
   Options
     --directory, -d  The directory of the files to add dates to
     --fileExtension, -ext  The file extensions that you wish to add dates to
+    --debug Turn on debugging messages
 
   Examples
-    $ frontmatterDateSetter --directory="notes" --fileExtension=md  --fileExtension=mdx
+    $ frontmatter-date-setter --directory="notes" --fileExtension=.md  --fileExtension=.mdx
+    $ fds --directory="notes" --fileExtension=.md  --fileExtension=.mdx
 
 `,
   {
@@ -27,12 +30,14 @@ const cli = meow(
         type: 'string',
         alias: 'ext',
         isMultiple: true,
-        default: ['md', 'mdx'],
+        default: ['.md', '.mdx'],
+      },
+      debug: {
+        type: 'boolean',
+        default: false,
       },
     },
   }
 )
 
-const options = cli.flags
-
-frontmatterDateSetter(options.flags.directory, options.fileExtensions)
+frontmatterDateSetter(cli.flags)

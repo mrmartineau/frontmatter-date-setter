@@ -15,9 +15,6 @@ const writeDate = async (filename, dates) => {
       },
       {
         styles: {
-          // '!!int': 'hexadecimal',
-          // '!!int': 'hexadecimal',
-          '!!str': 'canonical',
           '!!timestamp': 'canonical',
         },
       }
@@ -29,17 +26,25 @@ const writeDate = async (filename, dates) => {
   }
 }
 
-const frontmatterDateSetter = async (directory, fileExtensions) => {
+const frontmatterDateSetter = async (options) => {
+  options.debug && console.log('⚡ ~ frontmatter-date-setter > start')
   try {
     const stamps = await gitDates.getStamps({
-      projectRootPath: path.join(__dirname, directory),
+      projectRootPath: path.join(path.resolve(), options.directory),
     })
     Object.keys(stamps).forEach((item) => {
-      writeDate(path.join(__dirname, directory, item), stamps[item])
+      if (options.fileExtension.includes(path.extname(item))) {
+        options.debug &&
+          console.log(`⚡ ~ frontmatter-date-setter > file: ${item}`)
+        writeDate(
+          path.join(path.resolve(), options.directory, item),
+          stamps[item]
+        )
+      }
     })
-    console.log('🚀 ~ Dates updated')
+    options.debug && console.log('⚡ ~ frontmatter-date-setter > finish')
   } catch (error) {
-    console.log(error.stack || String(err))
+    console.log(error.stack || String(error))
   }
 }
 

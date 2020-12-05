@@ -96,25 +96,33 @@ npm install -g frontmatter-date-setter
 ```js
 const fds = require('frontmatter-date-setter')
 
-fds('tests', ['md', 'mdx'])
+fds({
+  directory: './tests',
+  fileExtensions: ['md', 'mdx'],
+  debug: true,
+})
 ```
 
 ### CLI
 
 ```
-Usage
-    $ frontmatterDateSetter <input>
+  Usage
+    $ frontmatter-date-setter <input>
+    $ fds <input>
 
   Options
     --directory, -d  The directory of the files to add dates to
     --fileExtension, -ext  The file extensions that you wish to add dates to
+    --debug Turn on debugging messages
 
   Examples
-    $ frontmatterDateSetter --directory="notes" --fileExtension=md  --fileExtension=mdx
+    $ frontmatter-date-setter --directory="notes" --fileExtension=.md  --fileExtension=.mdx
+    $ fds --directory="notes" --fileExtension=.md  --fileExtension=.mdx
 ```
 
 #### CLI Example
 
 ```js
-frontmatterDateSetter --directory="notes" --fileExtension=md  --fileExtension=mdx
+frontmatter-date-setter --directory="notes" --fileExtension=md  --fileExtension=mdx
+fds --directory="tests" --fileExtension=.txt --fileExtension=.md --fileExtension=.yml --debug
 ```
