@@ -1,0 +1,17 @@
+{
+  "name": "frontmatter-date-setter",
+  "version": "0.0.0",
+  "description": "Set YAML frontmatter file creation and modified dates using git date information",
+  "main": "index.js",
+  "author": "Zander Martineau",
+  "license": "MIT",
+  "bin": {
+    "frontmatter-date-setter": "src/cli.js",
+    "fds": "src/cli.js"
+  },
+  "dependencies": {
+    "git-date-extractor": "^4.0.0",
+    "gray-matter": "^4.0.2",
+    "meow": "^8.0.0"
+  }
+}
