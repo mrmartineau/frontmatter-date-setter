@@ -98,7 +98,7 @@ const fds = require('frontmatter-date-setter')
 
 fds({
   directory: './tests',
-  fileExtensions: ['md', 'mdx'],
+  fileExtension: ['.md', '.mdx'],
   debug: true,
 })
 ```
@@ -126,3 +126,11 @@ fds({
 frontmatter-date-setter --directory="notes" --fileExtension=md  --fileExtension=mdx
 fds --directory="tests" --fileExtension=.txt --fileExtension=.md --fileExtension=.yml --debug
 ```
+
+---
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/) © [Zander Martineau](https://zander.wtf)
+
+> Made by Zander • [zander.wtf](https://zander.wtf) • [GitHub](https://github.com/mrmartineau/) • [Twitter](https://twitter.com/mrmartineau/)

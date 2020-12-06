@@ -9,9 +9,29 @@
     "frontmatter-date-setter": "src/cli.js",
     "fds": "src/cli.js"
   },
+  "scripts": {
+    "release": "dotenv release-it"
+  },
   "dependencies": {
     "git-date-extractor": "^4.0.0",
     "gray-matter": "^4.0.2",
     "meow": "^8.0.0"
+  },
+  "keywords": [
+    "yaml",
+    "front matter",
+    "frontmatter",
+    "set date",
+    "modified date"
+  ],
+  "files": [
+    "src",
+    "README.md",
+    "index.js"
+  ],
+  "devDependencies": {
+    "@release-it/keep-a-changelog": "^2.2.2",
+    "dotenv-cli": "^4.0.0",
+    "release-it": "^14.2.2"
   }
 }
